@@ -24,6 +24,7 @@ spring:
             - Path=/user-service-2/**
           filters:
             - StripPrefix=1
+
         ## service3
         - id: business-service
           uri: lb://business-service
@@ -45,6 +46,14 @@ spring:
           uri: lb://company-management-service
           predicates:
             - Path=/company-management-service/**
+          filters:
+            - StripPrefix=1
+
+        ## Service5
+        - id: chat-management-service
+          uri: lb://chat-management-service
+          predicates:
+            - Path=/chat-management-service/**
           filters:
             - StripPrefix=1
 
